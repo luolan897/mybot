@@ -97,7 +97,10 @@ def main():
 
     # 注册错误处理器
     application.add_error_handler(error_handler)
-Thread(target=start_web_server, daemon=True).start()
+    
+    # 启动伪装服务器 (缩进修复)
+    Thread(target=start_web_server, daemon=True).start()
+    
     logger.info("机器人启动中...")
     application.run_polling(drop_pending_updates=True)
 
